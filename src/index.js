@@ -3,22 +3,12 @@ export default {
     try {
       const { searchParams } = new URL(request.url);
       const text = searchParams.get("text") || "Hello world";  // 默认文本
-      const lang = searchParams.get("lang") || "en-GB";  // 默认语言为英国英语
 
-      // 根据不同语言选择男声
-      const voices = {
-        'en-GB': 'en-GB', // 英国英语
-        'en-US': 'en-US', // 美国英语
-        'es-ES': 'es-ES', // 西班牙语
-        'fr-FR': 'fr-FR', // 法语
-        'de-DE': 'de-DE', // 德语
-        'it-IT': 'it-IT', // 意大利语
-      };
+      // 随机选择美国英语（en-US）或英国英语（en-GB）
+      const languages = ['en-US', 'en-GB'];
+      const selectedLang = languages[Math.floor(Math.random() * languages.length)];
 
-      // 检查并设置声音参数
-      const selectedLang = voices[lang] || 'en-GB';  // 默认为英国英语
-
-      // 分段文本（防止超出请求的长度限制）
+      // 分段文本，避免超出请求的长度
       const chunks = splitText(text, 180);
 
       let buffers = [];
@@ -34,7 +24,7 @@ export default {
       // 合并音频片段
       const fullAudio = concatenateArrayBuffers(buffers);
 
-      // 返回最终的音频
+      // 返回最终音频
       return new Response(fullAudio, {
         headers: {
           "Content-Type": "audio/mpeg",
@@ -47,7 +37,7 @@ export default {
   }
 };
 
-// 文本分段，避免请求超长
+// 文本分段，防止超出请求的长度限制
 function splitText(text, maxLen) {
   const words = text.split(" ");
   let parts = [];
