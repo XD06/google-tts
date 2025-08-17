@@ -12,5 +12,5 @@
 6. 部署成功后，你会得到一个 API 地址，例如：https://example.workers.dev
 ## 使用方法
 
-访问https://example.com/?text=Hello world</br>
+访问https://example.com/?text=Hello%20world</br>
 返回MP3
