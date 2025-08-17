@@ -9,8 +9,8 @@
 3. 进入 Cloudflare Dashboard → Pages → Create a project → Connect to Git → 选择这个仓库
 4. 构建命令：`npm install`
 5. 构建输出目录：无（留空）
-6. 部署成功后，你会得到一个 API 地址，例如：
+6. 部署成功后，你会得到一个 API 地址，例如：https://example.workers.dev
 ## 使用方法
 
-访问https://example.com/?text=Hello world
+访问https://example.com/?text=Hello world</br>
 返回MP3
