@@ -10,3 +10,7 @@
 4. 构建命令：`npm install`
 5. 构建输出目录：无（留空）
 6. 部署成功后，你会得到一个 API 地址，例如：
+## 使用方法
+
+访问https://example.com/?text=Hello world
+返回MP3
